@@ -113,6 +113,26 @@
             transform: scale(1.05);
             box-shadow: 0 6px 15px rgba(255, 215, 0, 0.9);
         }
+
+        /* New Style for "Click Here" Button */
+        .click-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 4px 10px; /* Ulteriore riduzione del padding */
+            background: #B8860B;
+            color: #000;
+            text-decoration: none;
+            font-size: 0.8em; /* Ridotto il font size */
+            border-radius: 5px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 8px rgba(255, 215, 0, 0.6);
+            text-align: center;
+        }
+        .click-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 15px rgba(255, 215, 0, 0.9);
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             h1, h2 {
@@ -123,22 +143,47 @@
                 font-size: 0.9em;
             }
         }
+
+        /* Style for the image */
+        .image-container img {
+            display: none;
+            max-width: 100%;
+            height: auto;
+            margin-top: 20px;
+            border: 2px solid #ffff66;
+        }
     </style>
 </head>
 <body>
     <!-- New Section for Name and Iconic Phrase -->
     <div class="name-container">
         <h2>Stankygae</h2>
-        <h3>La tua frase iconica qui</h3>
+        <h3><a href="javascript:void(0)" class="click-button" onclick="showImage()">Click Here</a></h3>
     </div>
+
+    <!-- Image Container (hidden initially) -->
+    <div class="image-container">
+        <img id="image" src="https://raw.githubusercontent.com/CainRg0/SkyWeb/main/er%20gatto%20de%20sky.jpg" alt="Image to open">
+    </div>
+
     <!-- Audio Player Section -->
-	
-	
     <audio id="background-audio" autoplay loop>
         <source src="https://raw.githubusercontent.com/CainRg0/SkyWeb/main/Moon%20halo.mp3" type="audio/mpeg">
-        
     </audio>
+
     <script>
+        // Function to show the image when the button is clicked
+        function showImage() {
+            var img = document.getElementById('image');
+            img.style.display = 'block'; // Rende visibile l'immagine
+
+            // Hide the image after 1 second
+            setTimeout(function() {
+                img.style.display = 'none';
+            }, 1000);
+        }
+
+        // Play the audio when the user clicks anywhere on the page
         document.addEventListener('click', () => {
             const audio = document.getElementById('background-audio');
             if (audio.paused) {
@@ -146,6 +191,7 @@
             }
         });
     </script>
+
     <!-- Existing Profile Section -->
     <div class="container">
         <h1>Welcome to my profile!</h1>
