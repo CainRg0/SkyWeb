@@ -20,10 +20,10 @@
             background: black;
         }
         /* Animated Background */
-          @keyframes backgroundMove {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+        @keyframes backgroundMove {
+            0% { background-position: 0% 0%; }
+            50% { background-position: 100% 100%; }
+            100% { background-position: 0% 0%; }
         }
         body::before {
             content: "";
@@ -34,7 +34,7 @@
             height: 100%;
             background: linear-gradient(45deg, #5B0000, #002600, #3D0000, #004D00);
             background-size: 300% 300%;
-            animation: backgroundMove 8s infinite; /* Animazione infinita più lenta */
+            animation: backgroundMove 8s infinite;
             z-index: -1;
         }
         @keyframes fadeIn {
@@ -54,7 +54,7 @@
         /* Main Container */
         .container {
             text-align: center;
-            background: rgba(0, 0, 0, 0.5); /* Quadrati neri resi più trasparenti */
+            background: rgba(0, 0, 0, 0.5);
             padding: 20px 30px;
             border-radius: 10px;
             box-shadow: 0 4px 15px rgba(255, 255, 0, 0.5);
@@ -62,7 +62,7 @@
         }
         /* Name Section */
         .name-container {
-            background: rgba(0, 0, 0, 0.5); /* Quadrati neri resi più trasparenti */
+            background: rgba(0, 0, 0, 0.5);
             padding: 20px 30px;
             border-radius: 10px;
             box-shadow: 0 4px 15px rgba(255, 255, 0, 0.5);
@@ -99,8 +99,8 @@
             display: inline-block;
             margin: 10px;
             padding: 12px 25px;
-            background: #B8860B; /* Giallo scuro (leggermente più scuro) */
-            color: #000; /* Modifica del colore del testo in nero */
+            background: #B8860B;
+            color: #000;
             text-decoration: none;
             font-size: 1em;
             border-radius: 5px;
@@ -113,6 +113,16 @@
             transform: scale(1.05);
             box-shadow: 0 6px 15px rgba(255, 215, 0, 0.9);
         }
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1, h2 {
+                font-size: 2em;
+            }
+            .links a {
+                padding: 10px 20px;
+                font-size: 0.9em;
+            }
+        }
     </style>
 </head>
 <body>
@@ -122,20 +132,29 @@
         <h3>La tua frase iconica qui</h3>
     </div>
     <!-- Audio Player Section -->
-    <audio autoplay loop>
-        <source src="#" type="audio/mpeg">
-        Il tuo browser non supporta l'elemento audio.
+	
+	
+    <audio id="background-audio" autoplay loop>
+        <source src="https://raw.githubusercontent.com/CainRg0/SkyWeb/main/Moon%20halo.mp3" type="audio/mpeg">
+        
     </audio>
+    <script>
+        document.addEventListener('click', () => {
+            const audio = document.getElementById('background-audio');
+            if (audio.paused) {
+                audio.play();
+            }
+        });
+    </script>
     <!-- Existing Profile Section -->
     <div class="container">
         <h1>Welcome to my profile!</h1>
-        <p>check out my socials id you'd like:</p>
+        <p>Check out my socials if you'd like:</p>
         <div class="links">
-            <a href="#">Pulsante 1</a>
-            <a href="#">Pulsante 2</a>
-            <a href="#">Pulsante 3</a>
-            <a href="#">Pulsante 4</a>
-            <a href="#">Pulsante 5</a>
+            <a href="https://www.instagram.com/stankygae?igsh=cnY1YjF0dHViMWNz" target="_blank">Instagram</a>
+            <a href="https://www.tiktok.com/@stankygae?_t=ZN-8t8df0gdJm2&_r=1" target="_blank">TikTok</a>
+            <a href="https://x.com/StankyGae?t=dHCblDr-nYNWJVwCwm2gXA&s=09" target="_blank">Twitter</a>
+            <a href="https://throne.com/stankygae" target="_blank">Throne</a>
         </div>
     </div>
 </body>
